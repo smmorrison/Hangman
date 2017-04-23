@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_result"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.samanthamorrison.hangman.ResultActivity">
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/result"
+        android:textSize="32dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/the_word_was"
+        android:layout_below="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/the_word_was"
+        android:textSize="22dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tries_left"
+        android:layout_below="@+id/the_word_was"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/tries_left"
+        android:textSize="22dp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/button_mainmenu"
+        android:layout_below="@+id/tries_left"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_mainmenu"
+        android:onClick="goToMenu"/>
+
+</RelativeLayout>

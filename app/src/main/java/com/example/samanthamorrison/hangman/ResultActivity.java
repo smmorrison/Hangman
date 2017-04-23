@@ -6,13 +6,40 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+
+public class ResultActivity extends AppCompatActivity {
+
+    private Game game;
+
+    protected TextView result;
+    protected TextView theWordWas;
+    protected TextView triesLeft;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_result);
+
+        game = Game.getInstance();
+
+        result = (TextView) findViewById(R.id.result);
+        theWordWas = (TextView) findViewById(R.id.the_word_was);
+        triesLeft = (TextView) findViewById(R.id.tries_left);
+
+        if(game.hasLost()){
+            result.setText("You lost!");
+        }
+
+        if(game.hasWon()){
+            result.setText("You won!");
+        }
+
+        theWordWas.setText("The correct word was: "+game.getWord());
+
+        triesLeft.setText("Tries left: "+game.getTriesLeft());
+
     }
 
     @Override
@@ -23,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         int id = item.getItemId();
         Intent intent;
         switch (id){
@@ -40,23 +66,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Starts game
+     * Takes user to main menu
      * @param view - view which is clicked
      */
-    public void goToGame(View view) {
+    public void goToMenu(View view) {
 
-        Intent intent = new Intent(this, GameActivity.class);
-        startActivity(intent);
-
-    }
-
-    /**
-     * Takes user to view with information
-     * @param view - view which is clicked
-     */
-    public void goToAbout(View view) {
-
-        Intent intent = new Intent(this, AboutActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
 
     }
